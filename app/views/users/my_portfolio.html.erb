@@ -1,0 +1,16 @@
+<h1 class='text-center mt-3'>Mi portafolio</h1>
+
+<div class="pt-5 row justify-content-md-center">
+  <div class="col-md-9">
+    <h3>Buscar Stocks</h3>  
+    <%= form_tag '#', method: :get do%>
+      <div class="input-group mb-3">
+          <%# <input type="text" class="form-control form-control-lg" placeholder="Search Here"> %>
+          <%= text_field_tag :stock, params[:stock], placeholder:'Stock ticker symbol', autofocus:true, class:'form-control form-control-lg' %>
+          <button type="submit" class="input-group-text btn-success"><i class="bi bi-search me-2"></i>Buscar</button>
+        
+      </div>
+    <% end %>
+  </div>
+
+</div>
