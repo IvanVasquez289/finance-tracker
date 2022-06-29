@@ -6,11 +6,23 @@
     <%= form_tag search_stock_path, method: :get do%>
       <div class="input-group mb-3">
           <%# <input type="text" class="form-control form-control-lg" placeholder="Search Here"> %>
-          <%= text_field_tag :stock, params[:stock], placeholder:'Stock ticker symbol', autofocus:true, class:'form-control form-control-lg' %>
+          <%= text_field_tag :stock, params[:stock], placeholder:'Stock ticker symbol, example: AAPL', autofocus:true, class:'form-control form-control-lg' %>
           <button type="submit" class="input-group-text btn-success"><i class="bi bi-search me-2"></i>Buscar</button>
         
       </div>
     <% end %>
   </div>
-
 </div>
+
+<% if @stock %>
+  <div class="row justify-content-md-center">
+    <div class="col-md-9">
+      <div class="card card-header d-inline-block">
+        <strong>Simbolo:</strong> <%= @stock.ticker %>
+        <strong>Nombre:</strong> <%= @stock.name %>
+        <strong>Precio:</strong> <%= @stock.last_price %> USD
+      </div>
+    </div>
+  </div>
+<% end %>
+
