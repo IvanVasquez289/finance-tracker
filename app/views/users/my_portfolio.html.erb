@@ -3,7 +3,7 @@
 <div class="pt-5 row justify-content-md-center">
   <div class="col-md-9">
     <h3>Buscar Stocks</h3>  
-    <%= form_tag search_stock_path, method: :get do%>
+    <%= form_tag search_stock_path, remote: true, method: :get do%>
       <div class="input-group mb-3">
           <%# <input type="text" class="form-control form-control-lg" placeholder="Search Here"> %>
           <%= text_field_tag :stock, params[:stock], placeholder:'Stock ticker symbol, example: AAPL', autofocus:true, class:'form-control form-control-lg' %>
@@ -14,15 +14,7 @@
   </div>
 </div>
 
-<% if @stock %>
-  <div class="row justify-content-md-center">
-    <div class="col-md-9">
-      <div class="card card-header d-inline-block">
-        <strong>Simbolo:</strong> <%= @stock.ticker %>
-        <strong>Nombre:</strong> <%= @stock.name %>
-        <strong>Precio:</strong> <%= @stock.last_price %> USD
-      </div>
-    </div>
-  </div>
-<% end %>
+<div id="resultado">
+</div>
+
 

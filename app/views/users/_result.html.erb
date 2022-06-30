@@ -1,0 +1,11 @@
+<% if @stock %>
+  <div class="row justify-content-md-center">
+    <div class="col-md-9">
+      <div class="card card-header d-inline-block">
+        <strong>Simbolo:</strong> <%= @stock.ticker %>
+        <strong>Nombre:</strong> <%= @stock.name %>
+        <strong>Precio:</strong> <%= @stock.last_price %> USD
+      </div>
+    </div>
+  </div>
+<% end %>
