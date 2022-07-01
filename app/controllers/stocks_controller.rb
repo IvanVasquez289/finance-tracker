@@ -9,12 +9,18 @@ class StocksController < ApplicationController
         end
         # render 'users/my_portfolio'
       else
-        flash[:alert] = 'Por favor ingresa un simbolo valido'
-        redirect_to my_portfolio_path
+        respond_to do |format|
+          flash.now[:alert] = 'Por favor ingresa un simbolo valido'
+          format.js { render partial: 'users/result' }
+        end
+        # redirect_to my_portfolio_path
       end
     else
-      flash[:alert] = 'Por favor ingresa un simbolo para buscar'
-      redirect_to my_portfolio_path
+      respond_to do |format|
+        flash.now[:alert] = 'Por favor ingresa un simbolo para buscar'
+        format.js { render partial: 'users/result' }
+      end
+      # redirect_to my_portfolio_path
     end
   end
 
