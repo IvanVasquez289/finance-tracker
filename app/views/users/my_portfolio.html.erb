@@ -1,10 +1,10 @@
 <h1 class='text-center mt-3'>Mi portafolio</h1>
 
-<div class="pt-5 row justify-content-md-center">
+<div class="mt-5 row justify-content-md-center buscador">
   <div class="col-md-10">
     <h3>Buscar Stocks</h3>  
     <%= form_tag search_stock_path, remote: true, method: :get do%>
-      <div class="input-group mb-3">
+      <div class="input-group">
           <%# <input type="text" class="form-control form-control-lg" placeholder="Search Here"> %>
           <%= text_field_tag :stock, params[:stock], placeholder:'Example: AAPL', autofocus:true, class:'form-control form-control-lg' %>
           <button type="submit" class="input-group-text btn text-white" style="background-color: #006DAA;"><i class="bi bi-search me-2"></i>Buscar</button>
