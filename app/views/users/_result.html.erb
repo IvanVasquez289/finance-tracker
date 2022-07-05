@@ -1,5 +1,5 @@
 <div class="row justify-content-md-center">
-  <div class="col-md-9 ">
+  <div class="col-md-10">
     <div class='d-inline-block'>
       <%= render 'layouts/messages' %>  
     </div>
@@ -7,9 +7,9 @@
 </div>
 
 <% if @stock %>
-  <div class="row justify-content-md-center">
-    <div class="col-md-9">
-      <div class="card card-header d-inline-block">
+  <div class="row justify-content-md-center mb-4">
+    <div class="col-md-10">
+      <div class="card card-header d-inline-block" style="background-color: #FFBC42;">
         <strong>Simbolo:</strong> <%= @stock.ticker %>
         <strong>Nombre:</strong> <%= @stock.name %>
         <strong>Precio:</strong> <%= @stock.last_price %> USD
