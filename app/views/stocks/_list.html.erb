@@ -1,0 +1,24 @@
+<div class="row row justify-content-md-center">
+    <div class="col-md-10">
+        <table class="table table-primary table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Ticker</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @acciones_rastreadas.each do |stock| %>
+                <tr>
+                    <th scope="row"> <%= stock.ticker %> </th>
+                    <td> <%= stock.name %> </td>
+                    <td> <%= stock.last_price %> </td>
+                    <td> <%= 'Accion x' %> </td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
