@@ -4,7 +4,7 @@
   <div class="col-md-10">
     <h3>Buscar Stocks</h3>  
     <%= form_tag search_stock_path, remote: true, method: :get do%>
-      <div class="input-group">
+      <div class="input-group shadow">
           <%# <input type="text" class="form-control form-control-lg" placeholder="Search Here"> %>
           <%= text_field_tag :stock, params[:stock], placeholder:'Example: AAPL', autofocus:true, class:'form-control form-control-lg' %>
           <button type="submit" class="input-group-text btn text-white" style="background-color: #006DAA;"><i class="bi bi-search me-2"></i>Buscar</button>

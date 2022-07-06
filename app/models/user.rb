@@ -5,4 +5,22 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def accion_ya_rastreada?(ticker_symbol)
+    # esto verifica si la stock existe, no necesariamente si el usuario la tiene, solo checa que exista en la Stock table 
+    stock = Stock.revisar_db(ticker_symbol)
+    return false unless stock
+    # user.stocks.where(id:5) asi lo pongo en consola, pero el user va implicito
+    stocks.where(id: stock.id).exists?
+
+  end
+  
+  def debajo_limite_acciones?
+    # user.stocks.count < 10 el user va implicito pq estamos en el modelo user
+    stocks.count < 10
+  end
+
+  def puede_rastrear_acciones?(ticker_symbol)
+    debajo_limite_acciones? && !accion_ya_rastreada?(ticker_symbol)
+  end
 end

@@ -13,7 +13,21 @@
         <strong>Simbolo:</strong> <%= @stock.ticker %>
         <strong>Nombre:</strong> <%= @stock.name %>
         <strong>Precio:</strong> <%= @stock.last_price %> USD
-        <%= link_to "Agregar al portafolio", user_stocks_path(user:current_user, ticker: @stock.ticker), class:'btn btn-success', method: :post %>
+        <% if current_user.puede_rastrear_acciones?(@stock.ticker) %>
+          <%= link_to "Agregar al portafolio", user_stocks_path(user:current_user, ticker: @stock.ticker), class:'btn btn-success', method: :post %>  
+        <% else %>
+          
+          <span class="badge bg-secondary">
+            Ya estas rastreando
+            <% if !current_user.debajo_limite_acciones? && current_user.accion_ya_rastreada?(@stock.ticker) %>
+              10 acciones y esta accion
+            <% elsif current_user.debajo_limite_acciones? && current_user.accion_ya_rastreada?(@stock.ticker) %>
+              esta accion
+            <% elsif !current_user.debajo_limite_acciones? %>
+              10 acciones
+            <% end %>
+          </span>
+        <% end %>
       </div>
     </div>
   </div>
