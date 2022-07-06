@@ -13,6 +13,7 @@
         <strong>Simbolo:</strong> <%= @stock.ticker %>
         <strong>Nombre:</strong> <%= @stock.name %>
         <strong>Precio:</strong> <%= @stock.last_price %> USD
+        <%= link_to "Agregar al portafolio", user_stocks_path(user:current_user, ticker: @stock.ticker), class:'btn btn-success', method: :post %>
       </div>
     </div>
   </div>

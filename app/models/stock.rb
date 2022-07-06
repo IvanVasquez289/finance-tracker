@@ -19,4 +19,9 @@ class Stock < ApplicationRecord
       return nil
     end
   end
+
+  def self.revisar_db(ticker_symbol)
+    # Stock.where(ticker:'GOOG')  ya no lleva el Stock porque ya estamos en el Stock model, esta implicito
+    where(ticker: ticker_symbol).first
+  end
 end
