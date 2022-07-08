@@ -23,4 +23,9 @@ class User < ApplicationRecord
   def puede_rastrear_acciones?(ticker_symbol)
     debajo_limite_acciones? && !accion_ya_rastreada?(ticker_symbol)
   end
+
+  def full_name
+    return "#{first_name} #{last_name}" if first_name || last_name
+    'Anonimo'
+  end
 end

@@ -14,3 +14,16 @@ body{
 .buscador{
     margin-bottom: 12px;
 }
+
+.nombre-usuario{
+    margin-top: 3.5%;
+    color: white;
+    padding-right: 10px;
+}
+
+@media (max-width:991px) {
+    .nombre-usuario{
+        margin-top: 0%;
+        margin-bottom: 10px;
+    }
+}

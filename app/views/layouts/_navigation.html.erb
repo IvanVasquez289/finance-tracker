@@ -35,6 +35,10 @@
                 </ul>
 
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class='nav-item nombre-usuario'>
+                        <i class="bi bi-person-circle"></i>
+                        <%= current_user.full_name%>
+                    </li>
                     <li class='nav-item'>
                         <%= link_to 'Cerrar Sesion', destroy_user_session_path, class:'btn btn-danger logout', method: :delete %>
                     </li>
