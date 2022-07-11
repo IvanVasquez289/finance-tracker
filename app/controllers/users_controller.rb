@@ -6,4 +6,9 @@ class UsersController < ApplicationController
   def my_friends
     @mis_amigos = current_user.friends
   end
+
+  def search
+    friend = params[:friend]
+    render json: friend
+  end
 end

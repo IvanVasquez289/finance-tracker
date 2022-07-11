@@ -1,5 +1,19 @@
 <h1 class='mb-5 text-center mt-3'>Amigos</h1>
 
+<div class="mt-5 row justify-content-md-center buscador">
+  <div class="col-md-10">
+    <h3>Buscar amigos</h3>  
+    <%= form_tag search_friend_path,remote: true, method: :get do%>
+      <div class="input-group shadow">
+          <%# <input type="text" class="form-control form-control-lg" placeholder="Search Here"> %>
+          <%= text_field_tag :friend, params[:friend], placeholder:'Example: Ivan', autofocus:true, class:'form-control form-control-lg' %>
+          <button type="submit" class="input-group-text btn text-white" style="background-color: #006DAA;"><i class="bi bi-search me-2"></i>Buscar</button>
+        
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <% if !@mis_amigos.empty? %>
   <%= render 'friends/list' %>
 <% end %>
