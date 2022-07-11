@@ -1,0 +1,20 @@
+<div class="row justify-content-md-center">
+  <div class="col-md-10">
+    <div class='d-inline-block'>
+      <%= render 'layouts/messages' %>  
+    </div>
+  </div>
+</div>
+
+<% if @friend %>
+  <div class="row justify-content-md-center amarillo">
+    <div class="col-md-10">
+      <div class="card card-header d-inline-block" style="background-color: #FFBC42;">
+        <strong>Email:</strong> <%= @friend %>
+        <strong>Nombre:</strong> <%= @friend %>
+        <strong>Precio:</strong> <%= @friend %>
+        <%= link_to "Seguir", '#', class:'btn btn-success', method: :post %>  
+      </div>
+    </div>
+  </div>
+<% end %>

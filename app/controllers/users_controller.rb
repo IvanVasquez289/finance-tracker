@@ -7,8 +7,32 @@ class UsersController < ApplicationController
     @mis_amigos = current_user.friends
   end
 
+  # def search
+  #   friend = params[:friend]  estos son los parametros que recibimos de la url
+  #   render json: friend
+  # end
+
   def search
-    friend = params[:friend]
-    render json: friend
+    if params[:friend].present?
+      @friend = params[:friend]
+      if @friend
+        respond_to do |format|
+          format.js { render partial: 'users/friend_result' }
+        end
+      else
+        respond_to do |format|
+          flash.now[:alert] = 'No se pudo encontrar el usuario'
+          format.js { render partial: 'users/friend_result' }
+        end
+      end
+    else
+      respond_to do |format|
+        flash.now[:alert] = 'Por favor ingresa el nombre del amigo o el correo'
+        format.js { render partial: 'users/friend_result' }
+      end
+    end
   end
+
+
+
 end
