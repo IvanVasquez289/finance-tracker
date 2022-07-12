@@ -30,4 +30,30 @@ class User < ApplicationRecord
     return "#{first_name} #{last_name}" if first_name || last_name
     'Anonimo'
   end
+
+  def self.search(param)
+    # el strip corta los espacios en blanco es como un trim en js
+    param.strip!
+    reciba_algo = (first_name_coincide(param) + last_name_coincide(param) + email_coincide(param)).uniq
+    return nil unless reciba_algo
+    reciba_algo
+  end
+
+  def self.first_name_coincide(param)
+    coincide('first_name', param)
+  end
+
+  def self.last_name_coincide(param)
+    coincide('last_name', param)
+  end
+  
+  def self.email_coincide(param)
+    coincide('email', param)
+  end
+  
+
+  def self.coincide(tipo_campo, param) 
+    # User.where("email like?",  "%example%")
+    where("#{tipo_campo} like?",  "%#{param}%")
+  end
 end
