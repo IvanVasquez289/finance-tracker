@@ -56,4 +56,9 @@ class User < ApplicationRecord
     # User.where("email like?",  "%example%")
     where("#{tipo_campo} like?",  "%#{param}%")
   end
+
+  def except_current_user(users)
+    users.reject { |user| user.id == self.id }  
+  end
+  
 end

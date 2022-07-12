@@ -6,15 +6,17 @@
   </div>
 </div>
 
-<% if @friend %>
+<% if @friends %>
   <div class="row justify-content-md-center amarillo">
-    <div class="col-md-10">
-      <div class="card card-header d-inline-block" style="background-color: #FFBC42;">
-        <strong>Email:</strong> <%= @friend %>
-        <strong>Nombre:</strong> <%= @friend %>
-        <strong>Precio:</strong> <%= @friend %>
-        <%= link_to "Seguir", '#', class:'btn btn-success', method: :post %>  
+    <% @friends.each do |friend| %>
+      <div class="col-md-10">
+        <div class="card card-header d-inline-block" style="background-color: #FFBC42;">
+          <strong>Nombre:</strong> <%= friend.full_name %>
+          <strong>Email:</strong> <%= friend.email %>
+          <strong>Acciones:</strong> <%= link_to "Ver perfil", "#",  class:'btn btn-success' %>
+          <%= link_to "Seguir", '#', class:'btn btn-success', method: :post %>  
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 <% end %>
