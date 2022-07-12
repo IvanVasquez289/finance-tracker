@@ -6,17 +6,25 @@
   </div>
 </div>
 
+
+
 <% if @friends %>
-  <div class="row justify-content-md-center amarillo">
-    <% @friends.each do |friend| %>
-      <div class="col-md-10">
-        <div class="card card-header d-inline-block" style="background-color: #FFBC42;">
-          <strong>Nombre:</strong> <%= friend.full_name %>
-          <strong>Email:</strong> <%= friend.email %>
-          <strong>Acciones:</strong> <%= link_to "Ver perfil", "#",  class:'btn btn-success' %>
-          <%= link_to "Seguir", '#', class:'btn btn-success', method: :post %>  
+<div class="row justify-content-md-center mb-2">
+  <% @friends.each do |friend| %>
+    <div class="col-md-4 col-sm-6 bg-white rounded shadow profile mx-2 mb-3">
+      <div class="card-body text-center">
+        <%# <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp" alt="avatar"
+          class="rounded-circle img-fluid" style="width: 150px;"> %>
+        <%= image_tag 'user.png', alt: 'icon' %>
+        <h5 class="my-3"> <%= friend.full_name %> </h5>
+        <p class="text-muted mb-1">Full Stack Developer</p>
+        <p class="text-muted mb-4"> <%= friend.email %> </p>
+        <div class="d-flex justify-content-center mb-2">
+          <%= link_to "Seguir", "#",  class:'btn btn-primary' , method: :post%>
+          <%= link_to "Ver perfil", '#', class:'btn btn-outline-primary ms-1' %> 
         </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>
 <% end %>

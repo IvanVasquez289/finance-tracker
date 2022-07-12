@@ -16,13 +16,13 @@ class UsersController < ApplicationController
     if params[:friend].present?
       @friends = User.search(params[:friend])
       @friends = current_user.except_current_user(@friends)
-      if @friends
+      if @friends.count < 1
         respond_to do |format|
+          flash.now[:alert] = 'No se pudo encontrar el usuario'
           format.js { render partial: 'users/friend_result' }
         end
       else
         respond_to do |format|
-          flash.now[:alert] = 'No se pudo encontrar el usuario'
           format.js { render partial: 'users/friend_result' }
         end
       end
