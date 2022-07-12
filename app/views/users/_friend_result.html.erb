@@ -22,7 +22,7 @@
           <div class="d-flex justify-content-center mb-2">
             
             <% if current_user.no_es_amigo_de?(friend.id) %>
-              <%= link_to "Seguir", "#",  class:'btn btn-primary' , method: :post%>
+              <%= link_to "Seguir", friendships_path(friend: friend),  class:'btn btn-primary' , method: :post%>
             <% else %>
               <span class="badge bg-secondary text-wrap fs-6 py-2">Son amigos</span>
             <% end %>
