@@ -7,24 +7,31 @@
 </div>
 
 
-
-<% if @friends %>
-<div class="row justify-content-md-center mb-2">
-  <% @friends.each do |friend| %>
-    <div class="col-md-4 col-sm-6 bg-white rounded shadow profile mx-2 mb-3">
-      <div class="card-body text-center">
-        <%# <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp" alt="avatar"
-          class="rounded-circle img-fluid" style="width: 150px;"> %>
-        <%= image_tag 'user.png', alt: 'icon' %>
-        <h5 class="my-3"> <%= friend.full_name %> </h5>
-        <p class="text-muted mb-1">Full Stack Developer</p>
-        <p class="text-muted mb-4"> <%= friend.email %> </p>
-        <div class="d-flex justify-content-center mb-2">
-          <%= link_to "Seguir", "#",  class:'btn btn-primary' , method: :post%>
-          <%= link_to "Ver perfil", '#', class:'btn btn-outline-primary ms-1' %> 
+<div class="container">
+  <% if @friends %>
+  <div class="row justify-content-center mb-2 ">
+    <% @friends.each do |friend| %>
+      <div class="col-12 col-sm-6 col-md-4 bg-white rounded shadow profile mx-2 mb-3">
+        <div class="card-body text-center">
+          <%# <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp" alt="avatar"
+            class="rounded-circle img-fluid" style="width: 150px;"> %>
+          <%= image_tag 'user.png', alt: 'icon' %>
+          <h5 class="my-3"> <%= friend.full_name %> </h5>
+          <p class="text-muted mb-1">Full Stack Developer</p>
+          <p class="text-muted mb-4"> <%= friend.email %> </p>
+          <div class="d-flex justify-content-center mb-2">
+            
+            <% if current_user.no_es_amigo_de?(friend.id) %>
+              <%= link_to "Seguir", "#",  class:'btn btn-primary' , method: :post%>
+            <% else %>
+              <span class="badge bg-secondary text-wrap fs-6 py-2">Son amigos</span>
+            <% end %>
+            
+            <%= link_to "Ver perfil", '#', class:'btn btn-outline-primary ms-1' %> 
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
+  </div>
   <% end %>
 </div>
-<% end %>

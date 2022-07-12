@@ -61,4 +61,8 @@ class User < ApplicationRecord
     users.reject { |user| user.id == self.id }  
   end
   
+  def no_es_amigo_de?(friend_id)
+    !friends.where(id: friend_id).exists?
+  end
+  
 end
