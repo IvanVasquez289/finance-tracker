@@ -1,0 +1,32 @@
+<h2 class='mb-5 text-center mt-3'>Detalles del usuario</h2>
+
+<div class="container">
+  <div class="row justify-content-center mb-2 ">
+    <div class="col-12 col-sm-6 col-md-4 bg-white rounded shadow profile mx-2 mb-3">
+      <div class="card-body text-center">
+        <%= image_tag 'user.png', alt: 'icon' %>
+        <h5 class="my-3"> <%= @user.full_name %> </h5>
+        <p class="text-muted mb-1">Full Stack Developer</p>
+        <p class="text-muted mb-4"> <%= @user.email %> </p>
+        <div class="d-flex justify-content-center mb-2">
+          <% if current_user.no_es_amigo_de?(@user.id) %>
+          <%= link_to "Seguir", friendships_path(friend: @user),  class:'btn btn-primary' , method: :post%>
+          <% else %>
+          <span class="badge bg-secondary text-wrap fs-6 py-2">Son amigos</span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if !@acciones_rastreadas.empty? %>
+  <%= render 'stocks/list' %>
+<% else %>
+    <p class='lead text-center'>
+        Este usuario no esta siguiendo ninguna accion
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+        </svg>
+    </p>
+<% end %>

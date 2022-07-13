@@ -1,5 +1,5 @@
 <div class="row row justify-content-md-center">
-    <div class="col-md-10">
+    <div class="col-md-10 table-responsive">
         <table class="table table-primary table-striped shadow">
             <thead>
                 <tr>
@@ -13,7 +13,10 @@
                 <tr>
                     <td> <%= amigo.email %> </td>
                     <td> <%= amigo.full_name %> </td>
-                    <td> <%= link_to "Dejar de seguir", friendship_path(amigo), method: :delete, data: { confirm: 'Estas seguro?' } , class:'btn btn-warning'%> </td>
+                    <td> 
+                        <%= link_to "Ver perfil", user_path(amigo), class:'btn btn-primary mb-2'%> 
+                        <%= link_to "Dejar de seguir", friendship_path(amigo), method: :delete, data: { confirm: 'Estas seguro?' } , class:'btn btn-warning mb-2'%> 
+                    </td>
                 </tr>
                 <% end %>
             </tbody>

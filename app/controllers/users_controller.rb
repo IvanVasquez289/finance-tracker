@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def my_portfolio
+    @user = current_user
     @acciones_rastreadas = current_user.stocks
   end
   
@@ -7,6 +8,11 @@ class UsersController < ApplicationController
     @mis_amigos = current_user.friends
   end
 
+  def show
+    @user = User.find(params[:id])
+    @acciones_rastreadas = @user.stocks
+  end
+  
   # def search
   #   friend = params[:friend]  estos son los parametros que recibimos de la url
   #   render json: friend
