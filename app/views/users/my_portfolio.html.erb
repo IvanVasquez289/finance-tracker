@@ -1,4 +1,4 @@
-<h1 class='text-center mt-3'>Mi portafolio</h1>
+<h1 class='text-center mt-3 display-4 fw-bold'>Mi portafolio</h1>
 
 <div class="mt-5 row justify-content-md-center buscador">
   <div class="col-md-10">
@@ -7,7 +7,7 @@
       <div class="input-group shadow">
           <%# <input type="text" class="form-control form-control-lg" placeholder="Search Here"> %>
           <%= text_field_tag :stock, params[:stock], placeholder:'Example: AAPL', autofocus:true, class:'form-control form-control-lg' %>
-          <button type="submit" class="input-group-text btn text-white" style="background-color: #006DAA;"><i class="bi bi-search me-2"></i>Buscar</button>
+          <button type="submit" class="input-group-text btn text-white" style="background-color: #5465FF;"><i class="bi bi-search me-2"></i>Buscar</button>
         
       </div>
     <% end %>
@@ -20,4 +20,12 @@
 
 <% if !@acciones_rastreadas.empty? %>
   <%= render 'stocks/list' %>
+<% else %>
+  <div class="p-5 mb-4 mt-4 rounded-3 shadow text-white" style="background-color: #5465FF;">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold">¿No tienes acciones en tu portafolio?</h1>
+      <p class="col-md-8 fs-4">Prueba agregando acciones de las empresas que quieras en el buscador.</p>
+      <p>Por ejemplo: AAPL, AMZN, MSFT, NFLX, UBER</p>
+    </div>
+  </div>
 <% end %>
