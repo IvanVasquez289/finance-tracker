@@ -6,7 +6,7 @@
     <%= form_tag search_friend_path,remote: true, method: :get do%>
       <div class="input-group shadow">
           <%# <input type="text" class="form-control form-control-lg" placeholder="Search Here"> %>
-          <%= text_field_tag :friend, params[:friend], placeholder:'Nombre o correo', autofocus:true, class:'form-control form-control-lg' %>
+          <%= text_field_tag :friend, params[:friend], placeholder:'Nombre o correo; prueba escribiendo @', autofocus:true, class:'form-control form-control-lg' %>
           <button type="submit" class="input-group-text btn text-white" style="background-color: #006DAA;"><i class="bi bi-search me-2"></i>Buscar</button>
         
       </div>

@@ -1,2 +1,51 @@
-<h1 class='mb-5 text-center mt-3'>Bienvenido a FinanceTracker App</h1>
-Crear pagina de bienvenida
+<h1 class='mb-4 text-center mt-3 display-2 fw-bold'>Bienvenido a  <em style="color: #003559;"> FinanceTracker App</em> </h1>
+
+<div id="carouselExampleIndicators" class="carousel slide mb-3" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag 'stock2.jpg', alt: 'icon', class:'d-block w-100' %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag 'stock3.jpg', alt: 'icon', class:'d-block w-100' %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag 'stock6.png', alt: 'icon', class:'d-block w-100' %>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<main>
+  <div class="container py-4">
+    <header class="pb-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bookmarks-fill" viewBox="0 0 16 16">
+            <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z"/>
+            <path d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1H4.268z"/>
+        </svg>
+        <span class="fs-4">Sobre la App</span>
+      </a>
+    </header>
+
+    <div class="p-5 mb-4 rounded-3 shadow text-white" style="background-color: #212529;">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">¿Como funciona?</h1>
+        <p class="col-md-8 fs-4">Explora las funcionalidades para checar los precios de las acciones de las empresas que mas te gusten y agregalas a tu portafolio para darle un mejor seguimiento</p>
+        <%= link_to 'Mi portafolio', my_portfolio_path, class:'btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold' %>
+      </div>
+    </div>
+
+  </div>
+</main>
